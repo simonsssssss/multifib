@@ -1,11 +1,11 @@
 version: "3"
 services:
   client:
-    image: "simonsssss/lab:fib-client"
+    image: "simonsssss/zadanie2:fib-client"
     mem_limit: 128m
     hostname: client
   server:
-    image: "simonsssss/lab:fib-server"
+    image: "simonsssss/zadanie2:fib-server"
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,14 +17,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "simonsssss/lab:fib-worker"
+    image: "simonsssss/zadanie2:fib-worker"
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "simonsssss/lab:fib-nginx"
+    image: "simonsssss/zadanie2:fib-router"
     mem_limit: 128m
     hostname: nginx
     ports:
